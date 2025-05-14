@@ -1,0 +1,481 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "RestSource",
+            "requestMethod": "GET",
+            "paginationRules": {
+              "supportRFC5988": "true"
+            },
+            "httpRequestTimeout": "00:01:40",
+            "requestInterval": "00.00:00:00.010",
+            "datasetSettings": {
+              "type": "RestResource",
+              "typeProperties": {
+                "relativeUrl": "/data/2.5/forecast?lat=6.5244&lon=3.3792&appid=43ca622a921b762adf2f5dcd324c3155"
+              },
+              "schema": [],
+              "externalReferences": {
+                "connection": "c4b11342-a1f4-443a-8a85-9abbf8c49d47"
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "LakehouseTableSink",
+            "tableActionOption": "Append",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "type": "LakehouseTable",
+              "typeProperties": {
+                "table": "weatherdata"
+              },
+              "schema": [],
+              "linkedService": {
+                "name": "API_lh",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "dabfa112-3d89-a1a2-42ae-ba1b79f3876a",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Tables"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "cod",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "cod",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "message",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "message",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "cnt",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "cnt",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.dt",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.dt",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.temp",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.main.temp",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.feels_like",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.main.feels_like",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.temp_min",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.main.temp_min",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.temp_max",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.main.temp_max",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.pressure",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.main.pressure",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.sea_level",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.main.sea_level",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.grnd_level",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.main.grnd_level",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.humidity",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.main.humidity",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.main.temp_kf",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.main.temp_kf",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.weather.id",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.weather.id",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.weather.main",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "list.weather.main",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.weather.description",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "list.weather.description",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.weather.icon",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "list.weather.icon",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.clouds.all",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.clouds.all",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.wind.speed",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.wind.speed",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.wind.deg",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.wind.deg",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.wind.gust",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.wind.gust",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.visibility",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "list.visibility",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.pop",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.pop",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.sys.pod",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "list.sys.pod",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.dt_txt",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "list.dt_txt",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.id",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "city.id",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.name",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "city.name",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.coord.lat",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "city.coord.lat",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.coord.lon",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "city.coord.lon",
+                  "physicalType": "double"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.country",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "city.country",
+                  "physicalType": "string"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.population",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "city.population",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.timezone",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "city.timezone",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.sunrise",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "city.sunrise",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "city.sunset",
+                  "type": "Int64"
+                },
+                "sink": {
+                  "name": "city.sunset",
+                  "physicalType": "long"
+                }
+              },
+              {
+                "source": {
+                  "name": "list.rain.3h",
+                  "type": "Double"
+                },
+                "sink": {
+                  "name": "list.rain.3h",
+                  "physicalType": "double"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            },
+            "columnFlattenSettings": {
+              "treatArrayAsString": false,
+              "treatStructAsString": false,
+              "flattenColumnDelimiter": "."
+            }
+          },
+          "enableStaging": false
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copying Data From API",
+        "dependsOn": []
+      },
+      {
+        "type": "RefreshDataflow",
+        "typeProperties": {
+          "dataflowId": "847de217-0dab-45a9-9760-dcbae68be08f",
+          "workspaceId": "17f6753b-b047-40f2-a213-5642959a1b3b",
+          "notifyOption": "NoNotification",
+          "dataflowType": "DataflowFabric"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Cleaning Data",
+        "dependsOn": [
+          {
+            "activity": "Copying Data From API",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Office365Outlook",
+        "typeProperties": {
+          "inputs": {
+            "body": {
+              "To": "boladale@akinpelu77.onmicrosoft.com",
+              "Subject": "API Pipeline Notification",
+              "Body": "<p>Babe, e no dey work again o</p>",
+              "Sensitivity": "",
+              "Importance": "Normal"
+            },
+            "method": "post",
+            "path": "/v2/Mail"
+          }
+        },
+        "name": "Office 365 Outlook1",
+        "dependsOn": [
+          {
+            "activity": "Cleaning Data",
+            "dependencyConditions": [
+              "Failed"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

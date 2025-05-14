@@ -1,0 +1,27 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Dataflow",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "weatherdata": {
+      "queryId": "41765b6d-5c1d-4bc8-b1ef-57650af90831",
+      "queryName": "weatherdata",
+      "loadEnabled": false
+    },
+    "weatherdata_DataDestination": {
+      "queryId": "231dd0a9-e5a1-4502-8106-8c4e78e31108",
+      "queryName": "weatherdata_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"4a2d2f6f-c4dc-49ac-88bf-48d4df77e22b\",\"DatasourceId\":\"ca7e58de-5710-4cec-8566-97f871efaccf\"}"
+    }
+  ]
+}
