@@ -1,11 +1,12 @@
+![image description](relative/path/in/repository/to/image.svg)
 # Ingesting Data from a REST API using Microsoft Fabric
 ---
 This project is a complete solution for integrating external weather data into a Microsoft Fabric Lakehouse using a scheduled pipeline and transformation flow. The solution enables consistent, enriched analytics by leveraging real-time or forecasted weather data.
 
-## Objective
+# Objective
 To ingest weather forecast data from a REST API, store it in Microsoft Fabric's Lakehouse, transform key fields, and ensure reliability via automated scheduling and failure notifications.
 
-## Step-by-Step Workflow
+# Step-by-Step Workflow
 1. API Integration (Data Source)
 API Used: OpenWeatherMap 5-day forecast API
 
@@ -32,12 +33,12 @@ Make the necessary transformation(s) as needed. Then, write to sink to the Lakeh
 On any activity failure, configure a "Failure Path" using an Office 365 Outlook activity to send an email notification
 
 
-## Lakehouse Structure
+# Lakehouse Structure
 Path	Description
 /Files/raw_weather/	Raw weather data from the API
 /Tables/transformed_weather/	Cleaned & transformed table for reporting
 
-## Outcome
+# Outcome
 With this pipeline, data is refreshed every 5 hours with minimal manual intervention. The transformation step ensures clean schema compatibility (especially for datetime).
 While the failure notifications allow quick response, improving reliability.
 
