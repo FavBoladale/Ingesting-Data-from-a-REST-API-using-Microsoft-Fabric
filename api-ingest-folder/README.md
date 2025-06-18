@@ -1,6 +1,6 @@
-![image description](relative/path/in/repository/to/image.svg)
+![Architecture API](https://github.com/user-attachments/assets/49150ba0-819d-459d-86a1-20dcdaed10ba)
 # Ingesting Data from a REST API using Microsoft Fabric
----
+
 This project is a complete solution for integrating external weather data into a Microsoft Fabric Lakehouse using a scheduled pipeline and transformation flow. The solution enables consistent, enriched analytics by leveraging real-time or forecasted weather data.
 
 # Objective
